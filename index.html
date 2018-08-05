@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Dictation App</title>
   </head>
   <body>
     <h1>This is the Dicatation App!</h1>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-      <div id="player"></div>
+    <div class="content">
+      <div id="player" class="player"></div>
+      <label for="transcription">Transcription</label>
       <textarea name="transcription" id="transcription" cols="120" rows="50"></textarea>
-
-      <script src="index.js"></script>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>

@@ -1,0 +1,8 @@
+.content {
+  display: grid;
+  grid-template-columns: 640px;
+}
+
+.player {
+  margin-bottom: 30px;
+}
