@@ -4,6 +4,9 @@ let start_time = 24;
 let play_duration = 10000;
 let pause_duration = 10000;
 
+let $loop_button = $('#loop-button');
+let app_is_looping = false;
+
 
 var tag = document.createElement('script');
 
@@ -20,7 +23,7 @@ function onYouTubeIframeAPIReady() {
     width: '640',
     videoId: '0jNH1387RnY',
     events: {
-      'onReady': onPlayerReady,
+      // 'onReady': onPlayerReady,
       // 'onStateChange': onPlayerStateChange
     }
   });
@@ -30,6 +33,18 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
   playThenPause();
 }
+
+$loop_button.on('click', function() {
+  if (app_is_looping) {
+    player.pauseVideo();
+    clearTimeout(play_timer);
+    clearTimeout(pause_timer);
+    app_is_looping = false;
+  } else {
+    playThenPause();
+    app_is_looping = true;
+  }
+});
 
 function playThenPause() {
   player.seekTo(start_time, true);

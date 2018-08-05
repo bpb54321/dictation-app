@@ -11,9 +11,22 @@
     <h1>This is the Dicatation App!</h1>
     <div class="content">
       <div id="player" class="player"></div>
+
+      <fieldset>
+        <legend>Looping Controls</legend>
+        <label for="start-time">Start Time</label>
+        <input type="number" name="start-time" id="start-time">
+        <label for="end-time">End Time</label>
+        <input type="number" name="end-time" id="end-time">
+        <label for="pause-time">Pause Time</label>
+        <input type="number" name="pause-time" id="pause-time">
+        <button id="loop-button">Start / Stop Looping</button>
+      </fieldset>
+
       <label for="transcription">Transcription</label>
       <textarea name="transcription" id="transcription" cols="120" rows="50"></textarea>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
   </body>
 </html>
