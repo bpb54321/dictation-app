@@ -10,6 +10,7 @@ let app_is_looping = false;
 let $start_time_input = $('#start-time');
 let $end_time_input = $('#end-time');
 let $pause_time_input = $('#pause-time');
+let $shift_next_frame_button = $('#shift-next-frame-button');
 
 
 var tag = document.createElement('script');
@@ -53,6 +54,15 @@ $loop_button.on('click', function() {
     playThenPause();
     app_is_looping = true;
   }
+});
+
+$shift_next_frame_button.on('click', function() {
+  let old_start_time = parseInt($start_time_input.val());
+  let old_end_time = parseInt($end_time_input.val());
+  let play_duration = old_end_time - old_start_time;
+  $start_time_input.val(old_end_time);
+  $end_time_input.val(old_end_time + play_duration);
+
 });
 
 function playThenPause() {
