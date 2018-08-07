@@ -1,11 +1,15 @@
 let play_timer;
 let pause_timer;
-let start_time = 24;
+let start_time = 34;
 let play_duration = 10000;
 let pause_duration = 10000;
 
 let $loop_button = $('#loop-button');
 let app_is_looping = false;
+
+let $start_time_input = $('#start-time');
+let $end_time_input = $('#end-time');
+let $pause_time_input = $('#pause-time');
 
 
 var tag = document.createElement('script');
@@ -35,6 +39,11 @@ function onPlayerReady(event) {
 }
 
 $loop_button.on('click', function() {
+  start_time = parseInt($start_time_input.val());
+  end_time = parseInt($end_time_input.val());
+  play_duration = (end_time - start_time) * 1000;
+  pause_duration = parseInt($pause_time_input.val()) * 1000;
+
   if (app_is_looping) {
     player.pauseVideo();
     clearTimeout(play_timer);
